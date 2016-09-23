@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "start": "node Server.js"
+  },
   "name": "email-node",
   "version": "1.0.0",
   "dependencies": {
