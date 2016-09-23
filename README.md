@@ -1,2 +1,5 @@
-# NodeMailer-Sample
-nodemailer sample through which we can easily send email.
+Node-Mailer
+===========
+
+Node.js Script to send e-mail's.
+

@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test Task</title>
+
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+
+    <script data-require="jquery@*" data-semver="2.0.3" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+    <script data-require="angular.js@*" data-semver="1.3.0-beta.5"
+            src="https://code.angularjs.org/1.3.0-beta.5/angular.js"></script>
+    <script data-require="bootstrap@*" data-semver="3.1.1"
+            src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script src="factory/mainFactory.js"></script>
+    <script src="controller/mainController.js"></script>
+    <script src="bootstrap-colorpicker-module.js"></script>
+    <script src="bower_components/angular-wysiwyg/dist/angular-wysiwyg.js"></script>
+
+</head>
+<body ng-app="myApp">
+<div ng-controller="MyCtrl">
+    <div style="width: 80%;margin: 5% 0% 0% 10%">
+        <div style="width: 50%;float: left">
+            <h3>Subscribe and recieve vacancies to email</h3>
+
+            <div class="panel-group" id="accordion1">
+                <div class="panel panel-default">
+
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseA1">
+                                <span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>
+                            </a>
+                            {{selectedCategory}}
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseA1">
+                                <span class="glyphicon glyphicon-menu-down pull-right" aria-hidden="true"></span>
+                            </a>
+
+                        </h4>
+                    </div>
+
+                    <div id="collapseA1" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <ul class="list-group">
+                                <li class="list-group-item" ng-repeat="category in categories"><a
+                                        ng-click="setCategory(category)" data-toggle="collapse" href="#collapseA1">{{category}}</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+                            {{selectedCity}}
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseB1">
+                                <span class="glyphicon glyphicon-menu-down pull-right" aria-hidden="true"></span>
+                            </a>
+                        </h4>
+                    </div>
+
+                    <div id="collapseB1" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <div class="panel-body">
+                                <ul class="list-group">
+                                    <li class="list-group-item" ng-repeat="city in cities"><a ng-click="setCity(city)"
+                                                                                              data-toggle="collapse"
+                                                                                              href="#collapseB1">{{city}}</a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <span class="glyphicon glyphicon-signal" aria-hidden="true"></span>
+                            {{selectedSalary}}
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseC1">
+                                <span class="glyphicon glyphicon-menu-down pull-right" aria-hidden="true"></span>
+                            </a>
+                        </h4>
+                    </div>
+
+                    <div id="collapseC1" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <ul class="list-group">
+                                <li class="list-group-item" ng-repeat="salary in salaries"><a
+                                        ng-click="setSalary(salary)" data-toggle="collapse" href="#collapseC1">{{salary}}</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-warning">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                            Email
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseD1">
+                                <span class="glyphicon glyphicon-menu-down pull-right" aria-hidden="true"></span>
+                            </a>
+                        </h4>
+                    </div>
+
+                    <div id="collapseD1" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <input type="text" class="form-control border-styles"
+                                   placeholder="Email*">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#demo">
+                Susbcribe
+            </button>
+        </div>
+        <div style="width: 50%;float: left">
+            <h3 style="text-align: right">Distribute your vacancy to all subscribers</h3>
+
+            <div class="panel-group" id="accordion">
+                <div class="panel panel-default">
+
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseA">
+                                <span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>
+                            </a>
+                            {{selectedCategory1}}
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseA">
+                                <span class="glyphicon glyphicon-menu-down pull-right" aria-hidden="true"></span>
+                            </a>
+                        </h4>
+                    </div>
+
+                    <div id="collapseA" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <ul class="list-group">
+                                <li class="list-group-item" ng-repeat="category in categories"><a
+                                        ng-click="setCategory1(category)" data-toggle="collapse" href="#collapseA">{{category}}</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+                            {{selectedCity1}}
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseB">
+                                <span class="glyphicon glyphicon-menu-down pull-right" aria-hidden="true"></span>
+                            </a>
+                        </h4>
+                    </div>
+
+                    <div id="collapseB" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <ul class="list-group">
+                                <li class="list-group-item" ng-repeat="city in cities"><a ng-click="setCity1(city)"
+                                                                                          data-toggle="collapse"
+                                                                                          href="#collapseB"
+                                                                                          ng-model="userInfo.city">{{city}}</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <span class="glyphicon glyphicon-signal" aria-hidden="true"></span>
+                            {{selectedSalary1}}
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseC">
+                                <span class="glyphicon glyphicon-menu-down pull-right" aria-hidden="true"></span>
+                            </a>
+                        </h4>
+                    </div>
+
+                    <div id="collapseC" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <ul class="list-group">
+                                <li class="list-group-item" ng-repeat="salary in salaries"><a
+                                        ng-click="setSalary1(salary)" data-toggle="collapse" href="#collapseC">{{salary}}</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-warning">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                            Email
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseD">
+                                <span class="glyphicon glyphicon-menu-down pull-right" aria-hidden="true"></span>
+                            </a>
+                        </h4>
+                    </div>
+
+                    <div id="collapseD" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <input type="text" class="form-control border-styles"
+                                   placeholder="Email*" ng-model="userInfo.email">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#myModal">
+                Add vacancy and distribute
+            </button>
+            <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog modal-sm" style="width: 50%;">
+                    <div class="modal-content" style="margin-top: 20vh; height: 500px">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Modal</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <div class="inner-addon left-addon">
+                                    <i class="glyphicon glyphicon-list-alt"></i>
+                                    <input type="text" class="form-control border-styles" id="name"
+                                           placeholder="Company name*" ng-model="userInfo.compName">
+                                </div>
+                                <div class="inner-addon left-addon">
+                                    <i class="glyphicon glyphicon-briefcase"></i>
+                                    <input type="text" class="form-control border-styles" id="title"
+                                           placeholder="Vacancy title*" ng-model="userInfo.vacTitle">
+                                </div>
+                                <div class="inner-addon left-addon text-center">
+                                    <i class="glyphicon glyphicon-signal"></i>
+                                    <input type="text" class="form-control border-styles"
+                                           placeholder="Salary Range*" ng-model="userInfo.salRange">
+                                    <wysiwyg style="margin-top: 20px;"
+                                             textarea-id="question"
+                                             textarea-class="form-control"
+                                             textarea-model="textareaQuestion"
+                                             textarea-height="180px"
+                                             textarea-name="textareaQuestion"
+                                             textarea-required
+                                             ng-model="userInfo.desc"
+                                             enable-bootstrap-title="true"
+                                             textarea-menu="yourModel.customMenu"></wysiwyg>
+                                </div>
+
+
+                            </div>
+
+                            <button type="button" class="btn btn-default pull-right" data-dismiss="modal">Cancel
+                            </button>
+                            <button type="button" class="btn btn-default pull-right" ng-click="sendMail()"
+                                    data-dismiss="modal" style="margin-right: 10px">Send
+                            </button>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
