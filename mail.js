@@ -4,7 +4,7 @@ module.exports = {
     getAdminData: function () {
         return {
             subscription: {
-                email: 'licianhorse@gmail.com'
+                email: 'your_email'
             }
         }
     },
@@ -12,8 +12,8 @@ module.exports = {
         return nodemailer.createTransport({
             service: 'Gmail',
             auth: {
-                user: 'licianhorse@gmail.com',
-                pass: 'zia_test'
+                user: 'your_email',
+                pass: 'your_password'
             }
         });
     }
