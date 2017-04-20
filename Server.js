@@ -17,8 +17,8 @@ var smtpTransport = nodemailer.createTransport("SMTP", {
     secureConnection: false,
     port: 587,
     auth: {
-        user: 'licianhorse@gmail.com',
-        pass: 'zia_test'
+        user: 'your_email',
+        pass: 'your_password'
     }
 });
 
